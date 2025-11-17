@@ -13,7 +13,7 @@ const Banner = () => {
         <div className="relative">
           <img src={bannerImg1} alt="" />
           {/* button div */}
-          <div className="flex gap-2.5 items-center absolute bottom-22 left-22">
+          <div className="flex gap-2.5 items-center absolute bottom-14 left-18">
             <div className="flex items-center">
               <button className="btn bg-primary rounded-full">
                 Track Your Parcel
@@ -28,7 +28,7 @@ const Banner = () => {
         <div className="relative">
           <img src={bannerImg2} alt="" />
           {/* button div */}
-          <div className="flex gap-2.5 items-center absolute bottom-22 left-22">
+          <div className="flex gap-2.5 items-center absolute bottom-14 left-18">
             <div className="flex items-center">
               <button className="btn bg-primary rounded-full">
                 Track Your Parcel
@@ -43,7 +43,7 @@ const Banner = () => {
         <div className="relative">
           <img src={bannerImg3} alt="" />
           {/* button div */}
-          <div className="flex gap-2.5 items-center absolute bottom-22 left-22">
+          <div className="flex gap-2.5 items-center absolute bottom-18 left-18">
             <div className="flex items-center">
               <button className="btn bg-primary rounded-full">
                 Track Your Parcel
