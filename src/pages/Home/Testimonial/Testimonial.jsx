@@ -9,7 +9,6 @@ import { FaQuoteLeft } from "react-icons/fa";
 
 const Testimonial = ({ testimonialPromise }) => {
   const testimonials = use(testimonialPromise);
-  console.log(testimonials);
   return (
     <div className="w-[80%] mx-auto my-14">
       <div className="flex flex-col items-center py-5">
