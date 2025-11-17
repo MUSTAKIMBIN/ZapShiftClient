@@ -5,7 +5,7 @@ import Navber from "../../pages/shared/Navber/Navber";
 
 const RootLayout = () => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto bg-[#eaeced6c]">
       <Navber></Navber>
       <Outlet></Outlet>
       <Footer></Footer>
