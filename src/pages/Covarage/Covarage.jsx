@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useLoaderData } from "react-router";
@@ -7,14 +7,28 @@ const Covarage = () => {
   const position = [23.8103, 90.4125];
 
   const serviceCenters = useLoaderData();
-  console.log(serviceCenters);
+  const mapRef = useRef(null);
+  // console.log(serviceCenters);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const location = e.target.location.value;
+    const district = serviceCenters.find((center) =>
+      center.district.toLowerCase().includes(location.toLowerCase())
+    );
+    if (district) {
+      const cordinate = [district.latitude, district.longitude];
+      console.log(district, cordinate);
+      mapRef.current.flyTo(cordinate, 14);
+    }
+    e.target.reset();
+  };
   return (
     <div className="w-[90%] mx-auto rounded-2xl py-5 px-5 md:py-16 md:px-16 bg-white my-10">
       <h3 className="text-2xl md:text-4xl text-secondary font-bold">
         We are available in 64 districts
       </h3>
       {/* search */}
-      <form className="my-10">
+      <form onSubmit={handleSearch} className="my-10">
         <label className="input">
           <svg
             className="h-[1em] opacity-50"
@@ -32,7 +46,12 @@ const Covarage = () => {
               <path d="m21 21-4.3-4.3"></path>
             </g>
           </svg>
-          <input type="search" className="grow" placeholder="Search" />
+          <input
+            name="location"
+            type="search"
+            className="grow"
+            placeholder="Search"
+          />
         </label>
       </form>
       {/* map container */}
@@ -42,6 +61,7 @@ const Covarage = () => {
           zoom={7}
           scrollWheelZoom={false}
           className="h-[65vh]"
+          ref={mapRef}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
