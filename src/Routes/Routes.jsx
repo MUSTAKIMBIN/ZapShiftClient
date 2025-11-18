@@ -4,6 +4,9 @@ import Home from "../pages/Home/Home/Home";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Covarage from "../pages/Covarage/Covarage";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import LogIn from "../pages/Auth/Login/LogIn";
+import Register from "../pages/Auth/Register/Register";
+import AuthLayout from "../Layout/AuthLayout/AuthLayout";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +26,20 @@ export const router = createBrowserRouter([
         path: "coverage",
         Component: Covarage,
         loader: () => fetch(`/serviceCenter.json`).then((res) => res.json()),
+      },
+    ],
+  },
+  {
+    path: "/",
+    Component: AuthLayout,
+    children: [
+      {
+        path: "login",
+        Component: LogIn,
+      },
+      {
+        path: "register",
+        Component: Register,
       },
     ],
   },
