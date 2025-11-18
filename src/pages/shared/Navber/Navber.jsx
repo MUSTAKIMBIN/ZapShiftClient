@@ -1,15 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import Logo from "../../../Components/Logo/Logo";
 
 const Navber = () => {
   const links = (
     <>
       <li>
-        <NavLink>Home</NavLink>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
         <NavLink>About</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/coverage"}>Coverage</NavLink>
       </li>
     </>
   );
@@ -41,9 +44,11 @@ const Navber = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">
-          <Logo></Logo>
-        </a>
+        <Link to={"/"}>
+          <span className=" text-xl">
+            <Logo></Logo>
+          </span>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

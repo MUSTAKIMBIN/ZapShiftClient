@@ -21,3 +21,8 @@ body {
   background-color: #caeb66;
   transition: 0.9s;
 }
+
+li .active {
+  background-color: #caeb66;
+  border-radius: 20px;
+}
