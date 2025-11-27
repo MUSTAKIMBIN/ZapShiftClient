@@ -8,7 +8,7 @@ const AuthLayout = () => {
     <div className="max-w-7xl mx-auto">
       <Logo></Logo>
       <div className="flex flex-col-reverse md:flex-row md:text-center md:justify-between">
-        <div className="w-1/2">
+        <div className="md:w-1/2">
           <Outlet></Outlet>
         </div>
         <div className="w-1/2 bg-[#FAFDF0] h-full">

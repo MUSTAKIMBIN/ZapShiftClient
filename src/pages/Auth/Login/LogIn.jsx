@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router";
 import useAuth from "../../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
@@ -52,6 +53,7 @@ const LogIn = () => {
           </div>
           <button className="btn btn-neutral mt-4">Login</button>
         </fieldset>
+        <SocialLogin></SocialLogin>
       </form>
     </div>
   );
