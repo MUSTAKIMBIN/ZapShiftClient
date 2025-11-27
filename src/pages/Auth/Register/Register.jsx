@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
 import useAuth from "../../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const {
@@ -17,6 +18,7 @@ const Register = () => {
     registerUser(data.email, data.password)
       .then((res) => {
         console.log(res.user);
+        toast.success("Registration Successful");
       })
       .catch((err) => {
         console.log(err.message);
