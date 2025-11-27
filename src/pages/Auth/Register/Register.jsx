@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
+import useAuth from "../../../Hooks/useAuth";
 
 const Register = () => {
   const {
@@ -8,8 +9,18 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const { registerUser } = useAuth();
+
   const handleRegistration = (data) => {
     console.log(data);
+    registerUser(data.email, data.password)
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
   return (
     <div className="w-2/3 py-10 mx-auto">
@@ -33,8 +44,8 @@ const Register = () => {
             {...register("password", {
               required: true,
               minLength: 6,
-              pattern:
-                /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_\-+={}[\]|:;"'<>,.?/~`]).+$/,
+              // pattern:
+              // /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_\-+={}[\]|:;"'<>,.?/~`]).+$/,
             })}
             className="input"
             placeholder="Password"
