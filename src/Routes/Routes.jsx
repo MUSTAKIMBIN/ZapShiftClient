@@ -7,6 +7,7 @@ import AboutUs from "../pages/AboutUs/AboutUs";
 import LogIn from "../pages/Auth/Login/LogIn";
 import Register from "../pages/Auth/Register/Register";
 import AuthLayout from "../Layout/AuthLayout/AuthLayout";
+import BeARider from "../pages/BeARider/BeARider";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
         path: "coverage",
         Component: Covarage,
         loader: () => fetch(`/serviceCenter.json`).then((res) => res.json()),
+      },
+      {
+        path: "beArider",
+        Component: BeARider,
       },
     ],
   },
